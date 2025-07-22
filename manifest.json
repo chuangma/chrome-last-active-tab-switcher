@@ -1,32 +1,24 @@
 {
   "manifest_version": 3,
-  "name": "Last Active Tab Switcher",
-  "version": "1.0",
-  "description": "Go back to the last active tab in the current window",
-  "permissions": ["tabs", "storage"],
+  "name": "Chrome Tab Tools",
+  "version": "1.6",
+  "description": "Switch to last active tab or favorite tab if set, mark/unmark favorite tab.",
+  "permissions": ["tabs", "contextMenus", "scripting", "activeTab", "storage"],
   "background": {
     "service_worker": "background.js"
   },
   "action": {
-    "default_title": "Switch to last tab",
-    "default_icon": {
-      "16": "icon.png",
-      "48": "icon.png",
-      "128": "icon.png"
-    }
-  },
-  "icons": {
-    "16": "icon.png",
-    "48": "icon.png",
-    "128": "icon.png"
+    "default_popup": "popup.html",
+    "default_title": "Chrome Tab Tools"
   },
   "commands": {
-    "_execute_action": {
-      "suggested_key": {
-        "default": "Ctrl+Z",
-        "mac": "Command+Z"
-      },
-      "description": "Switch to last active tab"
+    "switch-tab": {
+      "suggested_key": { "default": "Alt+Z", "mac": "Command+Z" },
+      "description": "Switch to favorite tab if set, otherwise last active tab"
+    },
+    "toggle-favorite": {
+      "suggested_key": { "default": "Alt+Shift+Z", "mac": "Command+Shift+Z" },
+      "description": "Mark/unmark favorite tab"
     }
   }
 }
