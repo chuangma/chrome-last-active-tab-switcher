@@ -19,19 +19,19 @@ chrome.runtime.onInstalled.addListener(() => {
 
 // Handle context menu click
 chrome.contextMenus.onClicked.addListener(info => {
-  if (info.menuItemId === "toggleFavorite") toggleFavorite(currentTabId);
+  if (info.menuItemId === "toggleFavorite") toggleFavorite();
 });
 
 // Handle popup buttons
 chrome.runtime.onMessage.addListener((msg) => {
   if (msg.action === "switch-tab") switchTab();
-  if (msg.action === "toggle-favorite") toggleFavorite(currentTabId);
+  if (msg.action === "toggle-favorite") toggleFavorite();
 });
 
 // Handle keyboard shortcuts
 chrome.commands.onCommand.addListener(cmd => {
   if (cmd === "switch-tab") switchTab();
-  if (cmd === "toggle-favorite") toggleFavorite(currentTabId);
+  if (cmd === "toggle-favorite") toggleFavorite();
 });
 
 function switchTab() {
@@ -51,15 +51,21 @@ function switchTab() {
 }
 
 
-function toggleFavorite(tabId) {
+function toggleFavorite() {
   chrome.storage.local.get("favoriteTabId", data => {
-    if (data.favoriteTabId === tabId) {
+    if (data.favoriteTabId) {
+      // Favorite exists → remove it
       chrome.storage.local.remove("favoriteTabId", updateBadge);
     } else {
-      chrome.storage.local.set({ favoriteTabId: tabId }, updateBadge);
+      // No favorite → set current active tab
+      chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
+        const activeTabId = tabs[0].id;
+        chrome.storage.local.set({ favoriteTabId: activeTabId }, updateBadge);
+      });
     }
   });
 }
+
 function updateBadge() {
   chrome.storage.local.get("favoriteTabId", data => {
     chrome.action.setBadgeText({ text: data.favoriteTabId ? "★" : "" });
