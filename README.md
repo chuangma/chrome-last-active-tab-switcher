@@ -26,5 +26,5 @@ You can customize these shortcuts in `chrome://extensions/shortcuts`.
 
 ## Notes
 
-This extension works entirely locally and does not collect any user data.
-`chrome://extensions/` or `New Tab` can not be marked as Favorite
+- This extension works entirely locally and does not collect any user data.
+- `chrome://extensions/` or `New Tab` can not be marked as Favorite
