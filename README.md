@@ -1,49 +1,30 @@
-# Last Active Tab Switcher
-This Chrome Extension lets you quickly switch back to the **previously active tab** in your chrome (It's not currently supported origianlly, so I made this).
+# Favorite Tab Switcher - Chrome Extension
 
----
+This Chrome Extension allows you to quickly mark the current tab as your "favorite" and toggle between your favorite and previously active tab.
 
 ## Features
 
-- Switch to your **favorite tab** if set — otherwise switch to your **last active tab**
-- Mark/unmark any tab as your **favorite** (via right-click, popup, or shortcut)
-- Favorite tab is shown with a ★ badge on the extension icon
-- Customizable keyboard shortcuts
-- Works in the **current Chrome window only**
+- Mark or unmark the current tab as your favorite
+- Switch between your favorite tab and the last active tab
 
-## How to Install
+## Keyboard Shortcuts
 
-1. **Download or clone** this repo.  
-2. Open Chrome and go to `chrome://extensions`.  
-3. Enable **Developer Mode**.  
-4. Click **Load unpacked**.  
-5. Select the folder containing the extension files.
+| Action          | Default Shortcut   |
+|-----------------|--------------------|
+| Toggle Favorite | Ctrl + Shift + F   |
+| Switch Tabs     | Ctrl + Shift + S   |
 
-## Shortcuts
+You can customize these shortcuts in `chrome://extensions/shortcuts`.
 
-To change the default shortcut:  
-- Visit `chrome://extensions/shortcuts`  
-- Find **Last Active Tab Switcher**  
-- Set your preferred shortcuts (default: `Command+Z` for switching, `Command+Shift+Z` for favorite)
+## Installation
 
-## ⚡️ How to Use
+1. Download or clone this repository
+2. Open Chrome and go to `chrome://extensions`
+3. Enable "Developer mode" (top right)
+4. Click "Load unpacked"
+5. Select the extension's folder
 
-* Switch Tab:
+## Notes
 
-  * Use your shortcut (e.g., `Command+Z`) or click the extension icon —
-  * If a favorite tab is set and you’re not on it, you’ll switch to it.
-  * If you’re already on the favorite, you’ll switch to your last active tab.
-  * If no favorite is set, it switches to your last active tab.
-
-* Mark/Unmark Favorite:
-
-  * Right-click on a page and select **Mark/Unmark as Favorite**
-  * Or click the **Mark/Unmark Favorite** button in the popup
-  * Or use the shortcut (e.g., `Command+Shift+Z`)
-
----
-
-## ⭐️ Notes
-
-* The extension shows a ★ badge when you have a favorite tab saved.
-* The extension works **per window** — the last active tab is tracked within the same Chrome window.
+This extension works entirely locally and does not collect any user data.
+`chrome://extensions/` or `New Tab` can not be marked as Favorite
